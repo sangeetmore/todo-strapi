@@ -6,20 +6,20 @@
     <v-card-text>
       <v-list>
         <span>
-          <v-list-item v-for="(task, id) in tasks" :key="id">
+          <v-list-item v-for="(todo, task_id) in todos" :key="task_id">
             <v-list-item-content>
               <v-checkbox
                 class="pa-2"
-                @click="changeStatus(id)"
+                @click="changeStatus(task_id)"
               >
-                {{ task.completed }}
+                {{ todo.completed }}
               </v-checkbox>
               <v-list-item-title class="mb-3">
-                {{ task.task }}
+                {{ todo.task }}
               </v-list-item-title>
             </v-list-item-content>
             <v-list-item-action>
-              <v-btn icon @click="removeTodo(id )">
+              <v-btn icon @click="removeTodo(task_id )">
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
             </v-list-item-action>
@@ -41,8 +41,8 @@ export default {
     },
   },
   computed: {
-    tasks() {
-      return this.$store.state.tasks;
+    todos() {
+      return this.$store.state.todos;
     },
   },
 };

@@ -5,19 +5,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        tasks: [
+        todos: [
             {
-                id: 1,
+                task_id: 1,
                 task: "Learn Vue",
                 completed: false,
               },
               {
-                id: 2,
+                task_id: 2,
                 task: "Learn Vuetify",
                 completed: false,
               },
               {
-                id: 3,
+                task_id: 3,
                 task: "Learn Vuex",
                 completed: false,
               },
@@ -25,14 +25,14 @@ export default new Vuex.Store({
     },
     mutations: {
         addTodo(state,payload){
-            payload.id = state.tasks.length + 1;
-            state.tasks.push(payload);
+            payload.task_id = state.todos.length + 1;
+            state.todos.push(payload);
         },
         removeTodo (state, payload) {
-            state.tasks.splice(payload, 1);
+            state.todos.splice(payload, 1);
         },
         changeStatus (state, payload) {
-            state.tasks[payload].completed = !state.tasks[payload].completed;
+            state.todos[payload].completed = !state.todos[payload].completed;
         }
     },
     actions: {},
