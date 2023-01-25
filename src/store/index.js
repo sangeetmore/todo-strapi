@@ -24,13 +24,28 @@ export default new Vuex.Store({
         ],
     },
     mutations: {
+        /**
+         * Function to add TODO
+         * @param {Object} state 
+         * @param {Object} payload 
+         */
         addTodo(state,payload){
             payload.task_id = state.todos.length + 1;
             state.todos.push(payload);
         },
+        /**
+         * Function to remove TODO
+         * @param {Object} state 
+         * @param {String} payload 
+         */
         removeTodo (state, payload) {
             state.todos.splice(payload, 1);
         },
+        /**
+         * Function to change status of TODO
+         * @param {Object} state 
+         * @param {String} payload 
+         */
         changeStatus (state, payload) {
             state.todos[payload].completed = !state.todos[payload].completed;
         }
